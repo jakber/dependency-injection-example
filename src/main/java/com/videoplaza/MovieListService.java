@@ -1,15 +1,20 @@
 package com.videoplaza;
 
+import javax.inject.Inject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class MovieListService {
-   private MovieResource movieResource = new MovieResource();
-   private ScoreResource scoreResource = new ScoreResource();
+   @Inject
+   private MovieResource movieResource;
+   private ScoreResource scoreResource;
 
-   public MovieListService() throws IOException {
+   @Inject
+   public MovieListService(MovieResource movieResource, ScoreResource scoreResource) throws IOException {
+      this.movieResource = movieResource;
+      this.scoreResource = scoreResource;
    }
 
    public List<Movie> listMovies(String prefix) {

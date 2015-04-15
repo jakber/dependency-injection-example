@@ -1,21 +1,19 @@
 package com.videoplaza;
 
-import java.io.IOException;
+import com.google.inject.Inject;
+
 import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
 
 public class Healthcheck {
-   private MovieResource movieResource;
-   private ScoreResource scoreResource;
+   private final MovieResource movieResource;
+   private final ScoreResource scoreResource;
 
-   public Healthcheck() {
-      try {
-         scoreResource = new ScoreResource();
-         movieResource = new MovieResource();
-      } catch (IOException e) {
-         e.printStackTrace();
-      }
+   @Inject
+   public Healthcheck(MovieResource movieResource, ScoreResource scoreResource) {
+      this.movieResource = movieResource;
+      this.scoreResource = scoreResource;
    }
 
    public boolean isHealthy() {

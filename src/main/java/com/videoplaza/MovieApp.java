@@ -1,5 +1,8 @@
 package com.videoplaza;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,8 +10,9 @@ import java.io.InputStreamReader;
 public class MovieApp {
 
    public static void main(String[] args) throws IOException {
-      final Healthcheck healthcheck = new Healthcheck();
-      final MovieListService movieListService = new MovieListService();
+      final Injector injector = Guice.createInjector(new MovieModule());
+      final Healthcheck healthcheck = injector.getInstance(Healthcheck.class);
+      final MovieListService movieListService = injector.getInstance(MovieListService.class);
 
       final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
       String line;

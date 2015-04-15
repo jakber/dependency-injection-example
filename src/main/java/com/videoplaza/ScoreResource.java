@@ -1,5 +1,8 @@
 package com.videoplaza;
 
+import com.google.inject.Inject;
+
+import javax.inject.Provider;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,9 +10,13 @@ import java.util.List;
 public class ScoreResource {
 
    private final DB db;
+   private final Provider<MovieListService> movieListService;
 
-   public ScoreResource() throws IOException {
-      db = new DB();
+   @Inject
+   public ScoreResource(final DB db, Provider<MovieListService> movieListService) throws IOException {
+
+      this.db = db;
+      this.movieListService = movieListService;
    }
 
    public List<Double> getScores(List<String> movies) {

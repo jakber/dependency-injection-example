@@ -9,8 +9,8 @@ public class MovieResource {
 
    private List<String> movies;
 
-   public MovieResource() throws IOException {
-      movies = new DB().listTitles();
+   public MovieResource(DB db) throws IOException {
+      movies = db.listTitles();
    }
 
    public List<String> findByPrefix(String prefix) {

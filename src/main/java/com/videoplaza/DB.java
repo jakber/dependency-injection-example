@@ -11,9 +11,8 @@ import java.util.Map;
 import java.util.zip.GZIPInputStream;
 
 public class DB {
-   List<String> titles = new ArrayList<>();
-   Map<String, Double> scores = new HashMap<>();
-
+   private final List<String> titles = new ArrayList<>();
+   private final Map<String, Double> scores = new HashMap<>();
 
    public DB() throws IOException {
       final BufferedReader reader = new BufferedReader(new InputStreamReader(new GZIPInputStream(new FileInputStream("/Users/jakob/Downloads/ratings.list.gz")
