@@ -32,14 +32,16 @@ Complex initialization: DI container to the rescue
 Introducing Guice & JSR-330
 
 Injectors and Modules
-	- bindings
-	- provider methods
-	- no lifecycle management!
-	- no magic!
-	- @Named and annotatedWith
-	- TypeLiteral
+
+ - bindings
+ - provider methods
+ - no lifecycle management!
+ - no magic!
+ - @Named and annotatedWith
+ - TypeLiteral
 
 Default constructor and @Inject
+
 Constructor vs Field injection
 
 Scopes
@@ -47,11 +49,12 @@ Scopes
 When to inject Provider<T>
 
 Servlet integration:
-	GuiceServletContextListener
-	ServletModule: web.xml replacement
+ - GuiceServletContextListener
+ - ServletModule: web.xml replacement
 
 
 Extensions
-	AssistedInject
-	Multibinder
-	TypeListeners/AOP
+
+ - AssistedInject
+ - Multibinder
+ - TypeListeners/AOP
